@@ -28,20 +28,20 @@ Then('the user should be navigated to the search page', async function () {
 });
 
 
-Then('the user should be displayed the message {string}', async function (message) {
+Then('the user should be displayed the message {string}', async function (expectedMessage) {
   actualMessage=(await searchPage.getSigninSuccessMessage()).split("\n")
   assert.equal(
-    message,
+    expectedMessage,
     actualMessage[0],
-    `Expected error message to be ${message} but received ${actualMessage}`
+    `Expected error message to be ${expectedMessage} but received ${actualMessage}`
   )
 });
 
-Then('the user should be displayed the error message {string}', async function (message) {
+Then('the user should be displayed the error message {string}', async function (expectedMessage) {
   actualMessage=await loginPage.getMessage()
   assert.equal(
-    message,
+    expectedMessage,
     actualMessage,
-    `Expected error message to be ${message} but received ${actualMessage}`
+    `Expected error message to be ${expectedMessage} but received ${actualMessage}`
   )
 });

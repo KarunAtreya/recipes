@@ -8,13 +8,13 @@ Feature: login feature
         Given the user has browsed to login page
 
 
-    Scenario: the user logs in with valid credentials
+    Scenario: user logs in with valid credentials
         When the user logs in with valid username "user" and valid password "aaaa1234"
         Then the user should be navigated to the search page
         And the user should be displayed the message "Successfully signed in as user."
 
 
-    Scenario: the user logins with invalid credentials
+    Scenario: user logs in with invalid credentials
         When the user logs in with username "<username>" and password "<password>"
         Then the user should be displayed the error message "<message>"
         Examples:
