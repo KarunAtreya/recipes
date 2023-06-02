@@ -10,12 +10,13 @@ Feature: login feature
 
     Scenario: the user logs in with valid credentials
         When the user logs in with valid username "user" and valid password "aaaa1234"
-        Then the user should see the message "Successfully signed as user."
+        Then the user should be navigated to the search page
+        And the user should be displayed the message "Successfully signed in as user."
 
 
     Scenario: the user logins with invalid credentials
         When the user logs in with username "<username>" and password "<password>"
-        Then the user should see the message "<message>"
+        Then the user should be displayed the error message "<message>"
         Examples:
             | username | password | message                                                     |
             | user123  | 123456   | The username and/or password you specified are not correct. |
