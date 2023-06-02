@@ -1,13 +1,13 @@
 // cucumber.conf.js file
 
 const { Before, BeforeAll, AfterAll, After, setDefaultTimeout } = require("@cucumber/cucumber");
-const { chromium } = require("playwright");
+const { firefox } = require("playwright");
 
 setDefaultTimeout(60000)
 
 // launch the browser
 BeforeAll(async function () {
-  global.browser = await chromium.launch({
+  global.browser = await firefox.launch({
       headless: false,
       slowMo: 1000,
   });
