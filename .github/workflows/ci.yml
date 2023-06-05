@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    if: github.repository_owner == 'TandoorRecipes'
+    if: github.repository_owner == 'KarunAtreya'
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -38,3 +38,16 @@ jobs:
     - name: Django Testing project
       run: |
         pytest
+    - name: e2e tests
+      working-directory: ./tests
+      env:
+        APP_URL: http://localhost/
+      run: |
+        npm i -D @playwright/test
+        npm i -D playwright
+        npx playwright install
+        npm i -D @cucumber/cucumber @cucumber/pretty-formatter
+        npm run test:e2e tests/e2e/features/
+
+
+
