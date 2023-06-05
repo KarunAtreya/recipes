@@ -8,8 +8,6 @@ class RegisterPage {
     this.password = `#id_password`;
     this.cPassword = `//input[@name="password_confirm"]`;
     this.registerBtn = `//button[@class="btn btn-success"]`;
-    // this.errorMsg=`//p[@class="invalid-feedback"]`
-    // this.errorMsg = `//div/p[@class="invalid-feedback"]`;
     this.errorMsg = `//div[@id="div_id_password"]/div`;
     this.succesMsg = `//div[@class="alert alert-success alert-dismissible fade show"]`;
   }
@@ -39,8 +37,6 @@ class RegisterPage {
 
   async getSuccessMsg() {
     return (await page.innerText(this.succesMsg)).split("\n").filter((n) => n);
-    // console.log(await page.innerText(this.succesMsg))
-    // return await page.innerText(this.succesMsg);
   }
 }
 

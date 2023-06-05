@@ -21,7 +21,6 @@ When(
 );
 
 Then("user should see message {string}", async function (message) {
-  // Write code here that turns the phrase above into concrete actions
   let a = await registerPage.getErrorMessage(message);
   assert.deepEqual(
     a[0],
@@ -30,9 +29,7 @@ Then("user should see message {string}", async function (message) {
   );
 });
 
-Then('user should redirect to login page',async function () {
-  // Write code here that turns the phrase above into concrete actions
-  // await registerPage.goToLoginPage();
+Then("user should redirect to login page", async function () {
   assert.equal(
     page.url(),
     await registerPage.loginURL,
@@ -40,11 +37,11 @@ Then('user should redirect to login page',async function () {
   );
 });
 
-Then('user should get sucess message {string}',async function (succesMsg) {
-  console.log(succesMsg)
-  
-  let errors=await registerPage.getSuccessMsg()
-  console.log(errors)
+Then("user should get sucess message {string}", async function (succesMsg) {
+  console.log(succesMsg);
+
+  let errors = await registerPage.getSuccessMsg();
+  console.log(errors);
   assert.equal(
     errors[0],
     succesMsg,
