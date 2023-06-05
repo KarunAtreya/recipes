@@ -40,11 +40,9 @@ jobs:
       env:
         APP_URL: http://localhost/
       run: |
-        npm i -D @playwright/test
-        npm i -D playwright
-        npx playwright install
-        npm i -D @cucumber/cucumber @cucumber/pretty-formatter
-        npm run test:e2e tests/e2e/features
+        npm install -D
+        pwd
+        npm run test:e2e e2e/features
 
 
 
