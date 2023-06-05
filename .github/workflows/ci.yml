@@ -37,7 +37,7 @@ jobs:
         python3 manage.py collectstatic_js_reverse
     - name: run app
       run: |
-        pwd
+        wget https://gist.githubusercontent.com/KarunAtreya/4a2bcb95acfb47ac5a0c8754bb0cb134/raw/df871ae00f066ac3c5b8f0691ee9ab17e603df89/.env
         docker compose up
     - name: e2e tests
       working-directory: ./tests
