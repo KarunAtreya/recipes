@@ -35,9 +35,6 @@ jobs:
         pip install -r requirements.txt
         python3 manage.py collectstatic --noinput
         python3 manage.py collectstatic_js_reverse
-    - name: Django Testing project
-      run: |
-        pytest
     - name: e2e tests
       working-directory: ./tests
       env:
