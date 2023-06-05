@@ -39,9 +39,9 @@ jobs:
         run: |
           sudo apt-get install wait-for-it -y
           wget https://gist.githubusercontent.com/KarunAtreya/4a2bcb95acfb47ac5a0c8754bb0cb134/raw/df871ae00f066ac3c5b8f0691ee9ab17e603df89/.env
+          docker compose up
           wait-for-it -h localhost -p 5432 -t 10 -- echo "psql is up and running."
           wait-for-it -h localhost -p 80 -t 10 -- echo "django is up and running."
-          docker compose up
       # - name: run app
       #   run: |
       - name: e2e tests
