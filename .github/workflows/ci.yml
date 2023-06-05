@@ -44,7 +44,7 @@ jobs:
         npm i -D playwright
         npx playwright install
         npm i -D @cucumber/cucumber @cucumber/pretty-formatter
-        npm run test:e2e tests/e2e/features/*
+        npm run test:e2e tests/e2e/features
 
 
 
