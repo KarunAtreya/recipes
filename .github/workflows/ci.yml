@@ -37,7 +37,6 @@ jobs:
         python3 manage.py collectstatic_js_reverse
     - name: run app
       run: |
-        wget https://raw.githubusercontent.com/vabene1111/recipes/develop/docs/install/docker/plain/docker-compose.yml
         docker compose up
     - name: e2e tests
       working-directory: ./tests
