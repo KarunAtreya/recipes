@@ -4,7 +4,6 @@ class RegisterPage {
   constructor() {
     this.baseUrl = config.tandoorURL;
     this.setupURL = this.baseUrl + "setup/";
-    this.loginURL = this.baseUrl + "accounts/login/";
     this.username = `//input[@name="name"]`;
     this.password = `#id_password`;
     this.cPassword = `//input[@name="password_confirm"]`;
@@ -17,10 +16,6 @@ class RegisterPage {
     await page.goto(this.setupURL);
   }
 
-  async goToLoginPage() {
-    await page.goto(this.loginURL);
-  }
-
   async submitRegisterData(username, password, cPassword) {
     await page.fill(this.username, username);
     await page.fill(this.password, password);
@@ -28,12 +23,11 @@ class RegisterPage {
     await page.click(this.registerBtn);
   }
 
-  async getErrorMessage(errorMsg) {
+  async getErrorMessage() {
     let error = (await page.innerText(this.errorMsg))
       .split("\n")
       .filter((n) => n);
-    let featureError = await errorMsg.split(",");
-    return [error, featureError];
+    return error;
   }
 
   async getSuccessMsg() {

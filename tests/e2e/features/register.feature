@@ -5,11 +5,11 @@ Feature: Register as super user
 
 
     Background:
-        Given user has navigated to the Setup page
+        Given user has navigated to the setup page
 
 
-    Scenario Outline: user tries to register with invalid credentials
-        When user registers with username "<username>" ,password "<password>" and confirm password "<confirm password>"
+    Scenario Outline: user tries to sign up with invalid credentials
+        When user sign up with username "<username>", password "<password>" and confirm password "<confirm password>"
         Then user should see message "<message>"
         Examples:
             | username | password | confirm password | message                                                                                                                            |
@@ -21,6 +21,6 @@ Feature: Register as super user
 
 
     Scenario: user registers with valid credentials
-        When user registers with username "user" ,password "aaaa1234" and confirm password "aaaa1234"
+        When user sign up with username "user", password "aaaa1234" and confirm password "aaaa1234"
         Then user should redirect to sign in page
         And user should get success message "User has been created, please login!"
