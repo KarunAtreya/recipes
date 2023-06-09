@@ -6,7 +6,7 @@ Feature: Create recipe feature
 
     Background:
         Given the user has registered with username "user" and password "aaaa1234"
-        And the user has logged in with username "user" and password "aaaa1234"
+        Given the user has logged in with username "user" and password "aaaa1234"
         And the user has created his/her own space named "User's Space"
 
 
@@ -20,8 +20,8 @@ Feature: Create recipe feature
             | Waiting_time     | 10                                   |
             | Servings         | 4                                    |
             | Servings_text    | cup                                  |
-            | image            | masala_tea_image                     |
-            | Step_name        | Boil water with tea and spices       |
+            | image            | masalachai.jpeg                      |
+        And the user adds step named "Boil water with tea and spices"
         And the user adds time "5" required for step
         And the user adds follwing recipe ingredients
             | amount | unit | name   |
