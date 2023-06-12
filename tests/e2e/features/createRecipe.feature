@@ -5,7 +5,10 @@ Feature: Create recipe feature
 
 
     Background:
-        Given the user has registered with username "user" and password "aaaa1234"
+        Given the user has signed up with the following details
+            | username         | user     |
+            | password         | aaaa1234 |
+            | confirm_password | aaaa1234 |
         And the user has logged in with username "user" and password "aaaa1234"
         And the user has created his/her own space named "User's Space"
 
