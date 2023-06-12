@@ -16,18 +16,17 @@ class RegisterPage {
     await page.goto(this.setupURL);
   }
 
-  async submitRegisterData(username, password, cPassword) {
-    await page.fill(this.username, username);
-    await page.fill(this.password, password);
-    await page.fill(this.cPassword, cPassword);
+  async submitRegisterData(userTable) {
+    await page.fill(this.username, userTable.raw()[0][1]);
+    await page.fill(this.password, userTable.raw()[1][1]);
+    await page.fill(this.cPassword, userTable.raw()[2][1]);
     await page.click(this.registerBtn);
   }
 
   async getErrorMessage() {
-    let error = (await page.innerText(this.errorMsg))
+    return (await page.innerText(this.errorMsg))
       .split("\n")
       .filter((n) => n);
-    return error;
   }
 
   async getSuccessMsg() {

@@ -7,7 +7,7 @@ const registerPage = new RegisterPage();
 const loginPage = new LoginPage();
 
 
-Given("user has navigated to the setup page", async function () {
+Given("the user has navigated to the setup page", async function () {
   await registerPage.goToRegisterPage();
   assert.equal(
     page.url(),
@@ -17,15 +17,15 @@ Given("user has navigated to the setup page", async function () {
 });
 
 When(
-  "user sign up with username {string}, password {string} and confirm password {string}",
-  async function (username, password, cPassword) {
-    await registerPage.submitRegisterData(username, password, cPassword);
+  "the user signs up with the following details",
+  async function (userTable) {
+    await registerPage.submitRegisterData(userTable);
   }
 );
 
-Then("user should see message {string}", async function (message) {
-  let actualErrorMessage = await registerPage.getErrorMessage(message);
-  let expectedErrorMessage = await message.split(",");
+Then("the user should see message {string}", async function (message) {
+  const actualErrorMessage = await registerPage.getErrorMessage(message);
+  const expectedErrorMessage = await message.split(",");
   assert.deepEqual(
     actualErrorMessage,
     expectedErrorMessage,
@@ -33,7 +33,7 @@ Then("user should see message {string}", async function (message) {
   );
 });
 
-Then("user should redirect to sign in page", async function () {
+Then("the user should redirect to sign in page", async function () {
   assert.equal(
     page.url(),
     await loginPage.loginPageUrl,
@@ -41,8 +41,8 @@ Then("user should redirect to sign in page", async function () {
   );
 });
 
-Then("user should get success message {string}", async function (succesMsg) {
-  let actualMessage = await registerPage.getSuccessMsg();
+Then("the user should get success message {string}", async function (succesMsg) {
+  const actualMessage = await registerPage.getSuccessMsg();
   assert.equal(
     actualMessage[0],
     succesMsg,
