@@ -7,7 +7,7 @@ const util = require('util')
 const exec = util.promisify(require('child_process').exec);
 
 const tandoorURL = process.env.APP_URL || "http://localhost/"
-const imagePath="../../filesForUpload/"
+const imagePath="filesForUpload/"
 setDefaultTimeout(60000)
 
 // launch the browser
