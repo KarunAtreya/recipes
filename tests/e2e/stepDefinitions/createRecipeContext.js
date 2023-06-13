@@ -19,10 +19,23 @@ When('the user creates new recipe {string}', async function (recipeName) {
   await recipePage.createRecipe(recipeName)
 });
 
-When('the user saves and view the following recipe details', async function (recipeDetails) {
+When('the user creates a recipe with the  following details', async function (recipeDetails) {
   await recipePage.inputRecipeDetails(recipeDetails.rowsHash())
-  await page.click(recipePage.saveAndViewButtonSelector)
 });
+
+When('the user adds following step details', async function (stepDetails) {
+  await recipePage.inputRecipeStepDetails(stepDetails.rowsHash())
+});
+
+When('the user adds following ingredients', async function (ingredientsData) {
+  await recipePage.inputIngredients(ingredientsData.hashes())
+});
+
+
+When('the user {string} the recipe', async function (option) {
+  await recipePage.clickSaveVieworDeleteButton(option)
+});
+
 
 Then('the user should be redirected to the {string} recipe page', async function (recipeName) {
   actualRecipeName = await recipePage.getRecipenName()
