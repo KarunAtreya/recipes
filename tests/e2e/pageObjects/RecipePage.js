@@ -27,8 +27,8 @@ class RecipePage {
         this.recipeHeadingSelector = "//div[@class='col-12']/h3"
     }
 
-    async getRecipenName() {
-        return await page.locator(this.recipeHeadingSelector).innerText()
+   getRecipenName() {
+        return page.locator(this.recipeHeadingSelector).innerText()
     }
 
     async createRecipe(recipeName) {
@@ -65,10 +65,8 @@ class RecipePage {
         }
     }
 
-    async clickSaveVieworDeleteButton(buttonName) {
-        await page.locator(format(this.saveViewOrDeleteButtonSelector, buttonName)).click()
+    clickSaveVieworDeleteButton(buttonName) {
+        return page.locator(format(this.saveViewOrDeleteButtonSelector, buttonName)).click()
     }
-
-
 }
 module.exports = { RecipePage }

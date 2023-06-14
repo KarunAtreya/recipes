@@ -7,19 +7,19 @@ const util = require('util')
 const exec = util.promisify(require('child_process').exec);
 
 const tandoorURL = process.env.APP_URL || "http://localhost/"
-const imagePath="filesForUpload/"
+const imagePath = "filesForUpload/"
 setDefaultTimeout(60000)
 
 // launch the browser
 BeforeAll(async function () {
   global.browser = await chromium.launch({
-      headless: true,
+    headless: true,
   });
 });
 
 // close the browser
 AfterAll(async function () {
-   await global.browser.close();
+  await global.browser.close();
 });
 
 // Create a new browser context and page per scenario
