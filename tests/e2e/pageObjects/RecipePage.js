@@ -55,7 +55,6 @@ class RecipePage {
     }
 
     async inputIngredients(ingredientsData) {
-        console.log(ingredientsData)
         for (let i = 0; i < ingredientsData.length; i++) {
             await page.locator(this.ingredientsAddButtonSelector).click()
             await page.locator(format(this.ingredientAmountInputSelector, i)).fill(ingredientsData[i]['Amount'])
