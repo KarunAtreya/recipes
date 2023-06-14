@@ -39,10 +39,9 @@ Feature: Create recipe feature
             | Step_time    | 2                                                         |
             | Instructions | Add the spices and tea with the water and wait until boil |
         And the user adds following ingredients
-            | Amount | Unit | Name   |
-            | 5      | m    | spices |
-            | 10     | g    | sugar  |
-            | 10     | g    | tea    |
-            | 100    | ml   | water  |
+            | Amount | Unit | Name         |
+            | 20     | gm   | mixed spices |
+            | 10     | gm   | sugar        |
+            | 100    | ml   | water        |
         And the user "Save & View" the recipe
         Then the user should be redirected to the "Masala tea recipe(test)" recipe page

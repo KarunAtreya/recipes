@@ -18,9 +18,11 @@ class RecipePage {
         this.timeAddButtonSelector = "//button[contains(text(),'Time')]"
         this.timeInputSelector = "//label[contains(text(),'Step time in minutes')]/following-sibling::input"
         this.ingredientsAddButtonSelector = "//button[@class='btn btn-success btn-block']"
-        this.ingredientAmountInputSelector="//input[@id='amount_0_%s']"
-        this.ingredientUnitInputSelector="//input[@id='unit_0_%s']"
-        this.ingredientNameInputSelector="#ingredient_0_%s"
+        this.ingredientAmountInputSelector = "//input[@id='amount_0_%s']"
+        this.ingredientUnitInputSelector = "//input[@id='unit_0_%s']"
+        this.ingredientUnitSelectSelector = "//ul[@id='listbox-unit_0_%s']//span[contains(text(),'%s')]//ancestor::li"
+        this.ingredientNameInputSelector = "#ingredient_0_%s"
+        this.ingredientNameSelectSelector = "//ul[@id='listbox-ingredient_0_%s']//span[contains(text(),'%s')]//ancestor::li"
         this.saveViewOrDeleteButtonSelector = "//button[contains(text(), '%s')]"
         this.recipeHeadingSelector = "//div[@class='col-12']/h3"
     }
@@ -52,19 +54,19 @@ class RecipePage {
         await page.locator(this.stepInstructionInputSelector).fill(stepData['Instructions'])
     }
 
-    async inputIngredients(ingredientsData){
+    async inputIngredients(ingredientsData) {
         console.log(ingredientsData)
-        for(let i=0; i< ingredientsData.length; i++){
+        for (let i = 0; i < ingredientsData.length; i++) {
             await page.locator(this.ingredientsAddButtonSelector).click()
-            await page.locator(format(this.ingredientAmountInputSelector,i)).fill(ingredientsData[i]['Amount'])
-            await page.locator(format(this.ingredientUnitInputSelector,i)).type(ingredientsData[i]['Unit'])
-            await page.locator(format("#unit_0_%s-0",i)).click()
-            await page.locator(format(this.ingredientNameInputSelector,i)).type(ingredientsData[i]['Name'])
-            await page.locator(format("#ingredient_0_%s-0",i)).click()
+            await page.locator(format(this.ingredientAmountInputSelector, i)).fill(ingredientsData[i]['Amount'])
+            await page.locator(format(this.ingredientUnitInputSelector, i)).type(ingredientsData[i]['Unit'])
+            await page.locator(format(this.ingredientUnitSelectSelector, i, ingredientsData[i]['Unit'])).click()
+            await page.locator(format(this.ingredientNameInputSelector, i)).type(ingredientsData[i]['Name'])
+            await page.locator(format(this.ingredientNameSelectSelector, i, ingredientsData[i]['Name'])).click()
         }
     }
 
-    async clickSaveVieworDeleteButton(buttonName){
+    async clickSaveVieworDeleteButton(buttonName) {
         await page.locator(format(this.saveViewOrDeleteButtonSelector, buttonName)).click()
     }
 
