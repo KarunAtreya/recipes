@@ -1,6 +1,6 @@
 const { format } = require("util");
 
-const config = require("../../cucumber.conf.js");
+const { config } = require("../../cucumber.conf.js");
 
 class CreateSpacePage {
 

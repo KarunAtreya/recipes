@@ -6,8 +6,11 @@ require("dotenv").config()
 const util = require('util')
 const exec = util.promisify(require('child_process').exec);
 
-const tandoorURL = process.env.APP_URL || "http://localhost/"
-const imagePath = "filesForUpload/"
+const config = {
+  tandoorURL: process.env.APP_URL || "http://localhost/",
+  filesForUpload: "filesForUpload/"
+}
+
 setDefaultTimeout(60000)
 
 // launch the browser
@@ -43,6 +46,4 @@ After(async function () {
   await global.context.close();
 });
 
-
-
-module.exports = { tandoorURL, imagePath };
+module.exports = { config };

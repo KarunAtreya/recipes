@@ -1,4 +1,4 @@
-const config=require("../../cucumber.conf.js")
+const { config } =require("../../cucumber.conf.js")
 
 class HomePage {
 
