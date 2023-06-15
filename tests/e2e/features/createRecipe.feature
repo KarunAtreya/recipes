@@ -7,7 +7,6 @@ Feature: Create recipe feature
         Given the superuser has signed up with the following details
             | username         | superuser |
             | password         | super1234 |
-            | confirm_password | super1234 |
         And the superuser has logged in with username "superuser" and password "super1234 "
         And the superuser has created a space named "Superuser's Space"
 
