@@ -10,12 +10,10 @@ Given('the superuser has created a space named {string}', async function (spaceN
   await createSpacePage.createSpace(spaceName)
 });
 
-When('the superuser creates new recipe {string}', async function (recipeName) {
+When('the superuser creates new recipe {string} with following details:', async function (recipeName, recipeDetails) {
   await recipePage.createRecipe(recipeName)
-});
-
-When('the superuser adds the following recipe details', async function (recipeDetails) {
   await recipePage.inputRecipeDetails(recipeDetails.rowsHash())
+
 });
 
 When('the superuser adds following step details', async function (stepDetails) {

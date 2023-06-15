@@ -1,19 +1,18 @@
 Feature: Create recipe feature
     As a user
     I want to create a recipe
-    So that I can store and share with other users
+    So that I can store and share them with other users
 
     Background:
         Given the superuser has signed up with the following details
             | username         | superuser |
             | password         | super1234 |
-        And the superuser has logged in with username "superuser" and password "super1234 "
+        And the superuser has logged in with username "superuser" and password "super1234"
         And the superuser has created a space named "Superuser's Space"
 
 
     Scenario: superuser creates a new recipe with basic details only
-        When the superuser creates new recipe "Masala tea recipe(test)"
-        And the superuser adds the following recipe details
+        When the superuser creates new recipe "Masala tea recipe(test)" with following details:
             | Description      | This is a test recipe for masala tea |
             | Preparation_time | 2                                    |
             | Waiting_time     | 10                                   |
@@ -25,8 +24,7 @@ Feature: Create recipe feature
 
 
     Scenario: superuser creates a new recipe with a step
-        When the superuser creates new recipe "Masala tea recipe(test)"
-        And the superuser adds the following recipe details
+        When the superuser creates new recipe "Masala tea recipe(test)" with following details:
             | Description      | This is a test recipe for masala tea |
             | Preparation_time | 2                                    |
             | Waiting_time     | 10                                   |
