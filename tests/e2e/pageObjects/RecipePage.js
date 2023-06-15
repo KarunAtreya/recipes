@@ -1,4 +1,4 @@
-const { config } = require("../../cucumber.conf.js")
+const { filesForUpload }= require("../../cucumber.conf.js")
 const { format } = require('util')
 
 class RecipePage {
@@ -44,7 +44,7 @@ class RecipePage {
         await page.locator(this.waitingTimeInputSelector).fill(recipeData['Waiting_time'])
         await page.locator(this.servingsInputSelector).fill(recipeData['Servings'])
         await page.locator(this.servingsTextInputSelector).fill(recipeData['Servings_text'])
-        await page.locator(this.imageInputSelector).setInputFiles(`${config.filesForUpload}${recipeData['Image']}`)
+        await page.locator(this.imageInputSelector).setInputFiles(`${filesForUpload}${recipeData['Image']}`)
     }
 
     async inputRecipeStepDetails(stepData) {

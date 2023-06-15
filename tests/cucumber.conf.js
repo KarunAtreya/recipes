@@ -46,4 +46,4 @@ After(async function () {
   await global.context.close();
 });
 
-module.exports = { config };
+module.exports = config;
