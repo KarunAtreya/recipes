@@ -23,7 +23,7 @@ Feature: Create recipe feature
         Then the superuser should be redirected to the "Masala tea recipe(test)" recipe page
 
 
-    Scenario: superuser creates a new recipe with a step
+    Scenario: superuser creates a new recipe with steps and ingredients
         When the superuser creates new recipe "Masala tea recipe(test)" with following details:
             | Description      | This is a test recipe for masala tea |
             | Preparation_time | 2                                    |
