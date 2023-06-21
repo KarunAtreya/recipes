@@ -55,7 +55,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-
+      - name: EsLint
+        working-directory: ./tests
+        run: |
+          npm install -D
+          npm run lint
       - name: Set up tandoor
         run: |
           cp .env.template .env
@@ -75,4 +79,5 @@ jobs:
           APP_URL: http://localhost/
         run: |
           npm install -D
-          npm run test:e2e e2e/features    
+          npm run test:e2e e2e/features   
+      
