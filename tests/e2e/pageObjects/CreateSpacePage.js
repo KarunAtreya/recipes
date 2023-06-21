@@ -4,7 +4,7 @@ const { tandoorURL } = require('../../cucumber.conf.js')
 
 class CreateSpacePage {
   constructor () {
-    this.baseUrl = tandoorURL
+     this.baseUrl = tandoorURL
     this.searchURL = tandoorURL + 'search/'
     this.spaceOverviewURL = tandoorURL + 'space-overview'
     this.createSpaceBtnSelector = '//input[@value="Create Space"]'
