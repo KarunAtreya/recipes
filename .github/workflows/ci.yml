@@ -55,7 +55,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-
+      - name: EsLint
+        working-directory: ./tests
+        run: |
+          npm install -D
+          npm run lint
       - name: Set up tandoor
         run: |
           cp .env.template .env
@@ -76,23 +80,4 @@ jobs:
         run: |
           npm install -D
           npm run test:e2e e2e/features   
-        
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cancel previous runs
-        uses: styfle/cancel-workflow-action@0.11.0
-        with:
-          all_but_latest: true
-          access_token: ${{ secrets.CANCEL_PREV_BUILD_TOKEN }}
-
-      - uses: actions/checkout@v3
-      - name: Set up node Version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-      - name: EsLint
-        working-directory: ./tests
-        run: |
-          npm install -D
-          npm run lint
+      
