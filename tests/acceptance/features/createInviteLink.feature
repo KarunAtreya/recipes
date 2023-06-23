@@ -3,31 +3,17 @@ Feature: create invite link
   I want to add user in my space
   So that I can share receipes with them
 
-  Scenario: super user creates invite link to add user in his/her space
-    Given the super user has generated the login token
+  Scenario Outline: super user creates invite link to add user in his/her space
     When the super user creates a invite link
-      | email | group |group id| date | reusable |
-      | nirajhancy@gmail.com | user | 2| 2029-03-03| false|
+      | email   | group_name   | group_id   | valid_until   | reusable   |
+      | <email> | <group_name> | <group_id> | <valid_until> | <reusable> |
     Then status code should be '201'
-    And the invite content should be contains email
-    And the JSON data of the response should match
-"""
-{
-"type": "object",
-"required": [
-"error"
-],
-"properties": {
-"error": {
-"type": "object",
-"required": [
-"message"
-],
-"properties": {
-"type": "string",
-"enum": ["Unauthorized"]
-}
-}
-}
-}
-"""
+    And the response should contain following information
+      | email   | group_name   | group_id   | valid_until   | reusable   |
+      | <email> | <group_name> | <group_id> | <valid_until> | <reusable> |
+    Examples:
+      | email             | group_name | group_id | valid_until | reusable |
+      | niraj@gmail.com   | guest      | 1        | 2029-03-03  | false    |
+      | prajwal@gmail.com | admin      | 3        | 2029-03-04  | false    |
+      | karun@gmail.com   | guest      | 1        | 2029-03-05  | true     |
+      | nabin@gmail.com   | user       | 2        | 2029-03-06  | true     |

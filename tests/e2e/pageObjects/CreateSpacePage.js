@@ -1,6 +1,6 @@
 const { format } = require("util");
 
-const { tandoorURL } = require("../../cucumber.conf.js");
+const { tandoorURL } = require("../../e2e.cucumber.conf.js");
 
 class CreateSpacePage {
 

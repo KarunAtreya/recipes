@@ -1,4 +1,4 @@
-// cucumber.conf.js file
+// e2e.cucumber.conf.js file
 
 const { Before, BeforeAll, AfterAll, After, setDefaultTimeout } = require("@cucumber/cucumber");
 const { chromium } = require("playwright");
@@ -41,7 +41,7 @@ async function cleanup() {
 
 // Cleanup after each scenario
 After(async function () {
-  await cleanup();
+  // await cleanup();
   await global.page.close();
   await global.context.close();
 });

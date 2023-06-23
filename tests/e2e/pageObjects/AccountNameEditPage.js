@@ -1,4 +1,4 @@
-const config = require("../../cucumber.conf.js");
+const config = require("../../e2e.cucumber.conf.js");
 
 class AccountNameEditPage {
   constructor() {
