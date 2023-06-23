@@ -2,7 +2,7 @@ const { Given, When, Then } = require("@cucumber/cucumber");
 const { LoginPage } = require("../pageObjects/LoginPage");
 const { HomePage } = require("../pageObjects/HomePage.js");
 const { RegisterPage } = require("../pageObjects/RegisterPage.js");
-const { tandoorURL } = require("../../cucumber.conf.js");
+const { tandoorURL } = require("../../e2e.cucumber.conf.js");
 
 const assert = require("assert");
 const loginPage = new LoginPage();

@@ -1,4 +1,4 @@
-const { filesForUpload }= require("../../cucumber.conf.js")
+const { filesForUpload }= require("../../e2e.cucumber.conf.js")
 const { format } = require('util')
 
 class RecipePage {
